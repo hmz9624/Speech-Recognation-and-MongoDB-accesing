@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/SpeechToText.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Mongo DB</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+
+                <li>
+                    <a href="/html">Portfolio</a>
+                </li>
+
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Applications</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="/html/Applications/SpeechToText">Spech To Text</a>
+                        </li>
+                        <li>
+                            <a href="/html/Applications/AllSpeech">Speech Datas</a>
+                        </li>
+                        <li>
+                            <a href="/html/Applications/FaceID">Face ID</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/html/AllComponents">All Components</a>
+                </li>
+
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Settings</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="/html/Settings/Add">Add</a>
+                        </li>
+                        <li>
+                            <a href="/html/Settings/Delete">Delete</a>
+                        </li>
+                        <li>
+                            <a href="/html/Settings/Update">Update</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/html/Contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="content" id="content" >
+        <div style="display: flex">
+            <h1 style="color:blue ; margin:0px ;">Speech Recognition</h1>
+        </div>
+        <img id="recordingImg"
+            style=" position: fixed; top: 20px; width: 50px; right: 50px; border-radius:40px; display:none"
+            src="/Uploads/recording1.gif" type="image/gif">
+        <hr style="border: 1px solid blue">
+
+
+
+        <div id="UsersDiv"
+            style="display:flex; justify-content:space-around; border: 2px solid blue; padding: 10px; background-color:rgb(119, 212, 200); border-radius: 20px;">
+            <div id="User1" style="background-color:rgb(119, 212, 200);border-radius:20px; width:45%;
+                    text-align:center;border:3px solid rgb(108, 187, 34)">
+                <image src="/Uploads/User1.png" alt="User1"></image>
+            </div>
+            <div style="border:3px solid rgb(99, 30, 3)">
+
+            </div>
+            <div id="User2" style="background-color:rgb(119, 212, 200);border-radius:20px; width:45%;
+                    text-align:center;border:3px solid rgb(108, 187, 34) ;">
+                <image src="/Uploads/User2.png" alt="User2"></image>
+            </div>
+        </div>
+        <br>
+
+        <div id="users">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr style="color:red; border:2px solid blue">
+                        <th class="Number" style="width:3%; " scope="col">#</th>
+                        <th class="Id" style="width:12%; " scope="col">Id/Date</th>
+                        <th class="User" style="width:8%; " scope="col">User</th>
+                        <th class="audio" style="width:200px; padding-left:30px; " scope="col">
+                            Audio
+                        </th>
+                        <th class="Speech" scope="col">Speech</th>
+
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+
+                </tbody>
+            </table>
+        </div>
+
+        <div id="button_div" style="float:right; margin-top:100px; margin-right:15px; display:block; border:2px solid rgb(107, 224, 72); padding:5px">
+            <input autocomplete="off" type="text" id="submitText"
+                style="width:120px; border:1px solid rgb(180, 87, 87); height:35px" placeholder="Topic">
+            <input id="button_submit" type="button" class="btn btn-primary" value="Submit Speech">
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap JS  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
+    <script src="/lib/jquery.js"></script>
+    <script type="module" src="/js/index.js"></script>
+    <script type="module" src="/js/SpeechToText_index.js"></script>
+</body>
+
+</html>

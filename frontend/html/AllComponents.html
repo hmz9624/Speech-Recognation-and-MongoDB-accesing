@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Mongo DB</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+
+                <li>
+                    <a href="/html">Portfolio</a>
+                </li>
+
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Applications</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="/html/Applications/SpeechToText">Spech To Text</a>
+                        </li>
+                        <li>
+                            <a href="/html/Applications/AllSpeech">Speech Datas</a>
+                        </li>
+                        <li>
+                            <a href="/html/Applications/FaceID">Face ID</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/html/AllComponents">All Components</a>
+                </li>
+
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Settings</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="/html/Settings/Add">Add</a>
+                        </li>
+                        <li>
+                            <a href="/html/Settings/Delete">Delete</a>
+                        </li>
+                        <li>
+                            <a href="/html/Settings/Update">Update</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/html/Contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div id="content" class="content">
+        <div>
+            <h1 style="color:blue ; margin:0px ;">Components</h1>
+            <h1 id="numberOfItem"
+                style=" position: absolute; top: 10px; right: 50px;color:rgb(145, 216, 248); border: 2px solid rgb(168, 204, 39); padding: 5px; border-radius:50%">
+                00</h1>
+        </div>
+
+
+        <hr style="border: 1px solid blue">
+        <div style="display:flex; flex-direction:row; justify-content:flex-start">
+            <button id="RefreshData" type="button" class="btn btn-outline-primary ">Refresh Data</button>
+            <button id="Console" type="button" class="btn btn-outline-secondary">Show Items in Console</button>
+            <button id="ShowItems" type="button" class="btn btn-outline-success">Open/Close</button>
+            <button id="DeleteAllData" type="button" class="btn btn-outline-danger">Delete All</button>
+
+            <div class="input-group " style="width:30%; position:absolute; right:20px;">
+                <input type="text" class="form-control" placeholder="Recipient's username"
+                    aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Filter</button>
+                </div>
+            </div>
+        </div>
+        <hr style="border: 1px solid blue">
+
+
+        <div id="AddComponents">
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap JS  -->
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
+    <script src="/lib/jquery.js"></script>
+    <script type="module" src="/js/AllComponents_index.js"></script>
+    <script type="module" src="/js/index.js"></script>
+    
+</body>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        width: 100%;
+    }
+
+    td:nth-child(odd) {
+        background-color: #dddddd;
+    }
+
+    td {
+        border: 1px solid blue;
+        text-align: left;
+        padding: 8px;
+    }
+
+    td:hover {
+        background-color: rgb(115, 215, 233)
+    }
+</style>
+
+</html>

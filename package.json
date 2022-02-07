@@ -1,0 +1,26 @@
+{
+  "name": "bigproject_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@uppy/core": "^2.1.4",
+    "@uppy/dashboard": "^2.1.3",
+    "@uppy/webcam": "^2.0.5",
+    "@uppy/xhr-upload": "^2.0.7",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.2",
+    "express-fileupload": "^1.2.1",
+    "fs": "^0.0.1-security",
+    "js-cookie": "^3.0.1",
+    "mongoose": "^6.1.3",
+    "path": "^0.12.7"
+  }
+}

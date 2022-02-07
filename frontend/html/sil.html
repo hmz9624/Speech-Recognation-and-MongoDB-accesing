@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="deneme">deneme</button>
+
+    <p>
+        <button id=record>record</button>
+        <button id=stopRecord>Stop</button>
+    </p>
+
+    <!-- <video width="400" height="400" controls>
+        <source type="video/mp4">
+        <source type="video/ogg">
+        Your browser does not support the video tag.
+    </video>
+    <button id="open">aç</button>
+    <button id="close">kapa</button> -->
+
+</body>
+<script src="/lib/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        let streamCurrent;
+        let allAudios = [];
+        let audioChunks = [];
+        let running = false
+
+        function startAudio() {
+            navigator.mediaDevices.getUserMedia({
+                    audio: true
+                })
+                .then(stream => {
+                    audioChunks = []
+                    handlerFunction(stream)
+                    streamCurrent = stream;
+                    rec.start();
+                })
+        }
+
+        function handlerFunction(stream) {
+            rec = new MediaRecorder(stream);
+            startRecEvents(rec)
+        }
+
+        $("#record").on("click", (e) => {
+            if (!running) {
+                startAudio()
+                running = true;
+            } else {
+                console.log("it still running.");
+            }
+        })
+
+        $("#stopRecord").on("click", () => {
+            if (running) {
+                running = false;
+                rec.stop();
+                let tracks = streamCurrent.getTracks()
+                tracks.forEach(track => {
+                    track.stop();
+                })
+            } else {
+                console.log("it is not running");
+            }
+        })
+
+        $("#deneme").on("click", () => {
+            console.log(allAudios);
+        })
+
+
+        let startRecEvents = (rec) => {
+            $(rec).on("dataavailable", function (event) {
+                let e = event.originalEvent
+                console.log(e);
+                audioChunks.push(e.data);
+                if (rec.state == "inactive") {
+                    let blob = new Blob(audioChunks, {
+                        type: 'audio/mpeg'
+                    });
+                    blob.id = Date.now()
+                    $("body").append(
+                        `<audio id=${blob.id} controls autoplay src=${URL.createObjectURL(blob)}></audio>`
+                    )
+                    allAudios.push(blob);
+                }
+            })
+
+            $(rec).on("start", () => {
+                console.log("basladı");
+            })
+
+            $(rec).on("dataavailable", () => {
+                console.log("bitti");
+            })
+        }
+
+
+
+
+
+        // ________________________________________ Enumerete devices_______________________________________________________
+
+        // if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+        //     console.log("Not support navigator");
+        //     return;
+        // }
+        // navigator.mediaDevices.enumerateDevices()
+        //     .then(function (devices) {
+        //         console.log(devices);
+        //         // devices.map((device)=>{
+        //         //     console.log("Kind:"+device.kind + " || Label:"+ device.label + "|| DeviceId:"+ device.deviceId)
+        //         // })
+        //     })
+        // ________________________________________ Get Display Media  Ekran paylaşma_______________________________________________________
+
+
+
+
+
+
+
+
+    })
+</script>
+
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/AllSpeech.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Mongo DB</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+
+                <li>
+                    <a href="/html">Portfolio</a>
+                </li>
+
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Applications</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="/html/Applications/SpeechToText">Spech To Text</a>
+                        </li>
+                        <li>
+                            <a href="/html/Applications/AllSpeech">Speech Datas</a>
+                        </li>
+                        <li>
+                            <a href="/html/Applications/FaceID">Face ID</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/html/AllComponents">All Components</a>
+                </li>
+
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                        class="dropdown-toggle">Settings</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="/html/Settings/Add">Add</a>
+                        </li>
+                        <li>
+                            <a href="/html/Settings/Delete">Delete</a>
+                        </li>
+                        <li>
+                            <a href="/html/Settings/Update">Update</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="/html/Contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="content">
+
+        <h1 style="color:blue">Speech Datas</h1>
+        <hr style="border: 1px solid blue">
+
+        <div id="speechNameList">
+            <div>
+                <nav id="nav1" class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div id="twoInput" style="width:31%">
+                        <div style="display: flex">
+                            <div>
+                                <input style="width:70px; margin-right:5px" type="number" class="form-control"
+                                    placeholder="Start" id="startNumberInput">
+                            </div>
+                            <div>_</div>
+                            <div>
+                                <input style="width:70px ; margin-left:5px" type="number" class="form-control"
+                                    placeholder="End" id="endNumberInput">
+                            </div>
+                            <button id="findInput" style="margin-left:10px" type="button"
+                                class="btn btn-outline-warning">Find</button>
+                            <button id="resetInput" style="margin-left:10px" type="button"
+                                class="btn btn-outline-danger">Reset</button>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label id="topicInput" class="btn btn-info  headBtn">
+                                <input type="radio" name="options" id="option1"> Topic
+                            </label>
+                            <label id="dateInput" class="btn btn-info headBtn active">
+                                <input type="radio" name="options" id="option3"> Date
+                            </label>
+                        </div>
+
+                        <div style="position: absolute; right: 0;" class="form-inline my-2 my-lg-0">
+                            <input id="searchInputText" class="form-control mr-sm-2" type="search"
+                                placeholder="Search keywords..." autocomplete="off" aria-label="Search">
+                            <button id="clearInput" class="btn btn-outline-success my-2 my-sm-0"
+                                type="button">Clear</button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <ul id=onlyNameOfSpeech>
+
+            </ul>
+
+        </div>
+
+
+        <div id="audioIcon" style=" margin-top:70px;">
+            <div style=" float:right;">
+                <button id="clearSpeechInput" class="btn btn-outline-success my-2 my-sm-0" type="button">Clear</button>
+                <input style="width:220px ; float:left; margin-right: 10px;" id="searchInputSpeech" type="search"
+                    class="form-control" placeholder="Search keywords..." autocomplete="off" aria-label="Search">
+            </div>
+
+            <div id="audio" style=" float:left; display:flex">
+                <img class="audioIcon" id="play" alt="Play" src="/Uploads/Play.png" style="display:block">
+                <img class="audioIcon" id="continue" alt="Continue" src="/Uploads/Continue.jpg" style="display:none">
+                <img class="audioIcon" id="resetAll" alt="Reset" src="/Uploads/Reset.png" style="display:block">
+                <img class="audioIcon" id="soundOn" alt="SoundOn" src="/Uploads/SoundOn.jpg" style="display:block">
+                <img class="audioIcon" id="soundOff" alt="SoundOff" src="/Uploads/SoundOff.png" style="display:none">
+            </div>
+
+
+        </div>
+
+
+
+
+        <div id="userSpeech">
+            <table class="table table-striped table-hover">
+                <thead id="thead">
+                    <tr style="color:rgb(42, 167, 140);">
+                        <th class="Number" style="width:3%; " scope="col">#</th>
+                        <th class="Id" style="width:12%; " scope="col">Id/Date</th>
+                        <th class="User" style="width:8%; " scope="col">User</th>
+                        <th class="audio" style="width:200px; padding-left:30px; " scope="col">
+                            Audio
+                        </th>
+                        <th class="Speech" scope="col">Speech</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap JS  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+    </script>
+    <script src="/lib/jquery.js"></script>
+    <script type="module" src="/js/index.js"></script>
+    <script type="module" src="/js/AllSpeech_index.js"></script>
+</body>
+
+</html>
